@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar'; // ✅ Import Navbar
+import Navbar from '../components/Navbar';
 
 function AddTask() {
   const navigate = useNavigate();
@@ -27,59 +27,64 @@ function AddTask() {
   };
 
   return (
-    <div>
-      <Navbar /> {/* ✅ Render Navbar */}
-
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <Navbar />
       <div className="p-6 max-w-2xl mx-auto">
-        <h2 className="text-xl font-bold mb-4">Add Task</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <h2 className="text-3xl font-bold text-gray-800 mb-6">Add New Task</h2>
+
+        <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow space-y-4">
           <input
             name="title"
             placeholder="Title"
             value={formData.title}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 rounded px-4 py-2"
             required
           />
+
           <textarea
             name="description"
             placeholder="Description"
             value={formData.description}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 rounded px-4 py-2"
             required
           />
+
           <input
             type="date"
             name="deadline"
             value={formData.deadline}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 rounded px-4 py-2"
             required
           />
+
           <input
             name="assignedTo"
             placeholder="Assigned To"
             value={formData.assignedTo}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 rounded px-4 py-2"
             required
           />
+
           <select
             name="status"
             value={formData.status}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border border-gray-300 rounded px-4 py-2"
           >
             <option>Pending</option>
             <option>In Progress</option>
             <option>Done</option>
           </select>
+
           <button
             type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 shadow transition"
           >
-            Submit
+            Submit Task
           </button>
         </form>
       </div>
